@@ -4,4 +4,5 @@ from bot import Bot
 token = os.getenv("TOKEN")
 
 bot = Bot(token)
-print(bot.get_info())
+CHAT_ID = "86775091"
+bot.send_message(CHAT_ID, "Hello, world!")

@@ -10,3 +10,14 @@ class Bot:
         """
         response = requests.get(self.base_url + "getMe")
         return response.json()
+    
+    def send_message(self, chat_id, text):
+        """
+        This method sends a message to a specific chat
+        """
+        data = {
+            "chat_id": chat_id,
+            "text": text
+        }
+        response = requests.post(self.base_url + "sendMessage", data=data)
+        return response.json()
