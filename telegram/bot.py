@@ -69,4 +69,11 @@ class Bot:
             voice: The path to the voice to send
         """
 
+    def get_updates(self):
+        """
+        This method returns updates from the bot
+        """
+        response = requests.get(self.base_url + "getUpdates")
+        return response.json()
+
     # Add more methods here
