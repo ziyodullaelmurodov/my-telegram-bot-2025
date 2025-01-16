@@ -1,8 +1,11 @@
 # Get toke from the environment variable
 import os
-from bot import Bot
+from telegram import Bot
 token = os.getenv("TOKEN")
 
 bot = Bot(token)
 CHAT_ID = "86775091"
-bot.send_message(CHAT_ID, "Hello, world!")
+updates = bot.get_updates()
+update = updates[0]
+text = update.message.text
+print(text)
