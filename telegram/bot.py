@@ -1,4 +1,5 @@
 import requests
+from .user import User
 class Bot:
     def __init__(self, token):
         self.token = token
@@ -9,7 +10,8 @@ class Bot:
         This method returns information about the bot
         """
         response = requests.get(self.base_url + "getMe")
-        return response.json()
+        user = User(response.json())
+        return user
     
     def send_message(self, chat_id, text):
         """
