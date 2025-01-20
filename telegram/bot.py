@@ -32,6 +32,14 @@ class Bot:
             chat_id: The id of the chat to send the photo to
             photo: The path to the photo to send
         """
+        data = {
+            "chat_id": chat_id
+        }
+        files = {
+            "photo": open(photo, "rb")
+        }
+        response = requests.post(self.base_url + "sendPhoto", data=data, files=files)
+        return response.json()
         
     def send_document(self, chat_id, document):
         """
@@ -41,6 +49,14 @@ class Bot:
             chat_id: The id of the chat to send the document to
             document: The path to the document to send
         """
+        data = {
+            "chat_id": chat_id
+        }
+        files = {
+            "document": open(document, "rb")
+        }
+        response = requests.post(self.base_url + "sendDocument", data=data, files=files)
+        return response.json()
 
     def send_audio(self, chat_id, audio):
         """
@@ -50,6 +66,14 @@ class Bot:
             chat_id: The id of the chat to send the audio to
             audio: The path to the audio to send
         """
+        data = {
+            "chat_id": chat_id
+        }
+        files = {
+            "audio": open(audio, "rb")
+        }
+        response = requests.post(self.base_url + "sendAudio", data=data, files=files)
+        return response.json()
 
     def send_video(self, chat_id, video):
         """
@@ -59,6 +83,14 @@ class Bot:
             chat_id: The id of the chat to send the video to
             video: The path to the video to send
         """
+        data = {
+            "chat_id": chat_id
+        }
+        files = {
+            "video": open(video, "rb")
+        }
+        response = requests.post(self.base_url + "sendVideo", data=data, files=files)
+        return response.json()
 
     def send_voice(self, chat_id, voice):
         """
